@@ -12,15 +12,14 @@ class UrlsController < ApplicationController
   # GET /urls/1
   # GET /urls/1.json
   def show
+    # @url = "http://bit.ly/#{@url}"
     render json: @url
   end
 
   # POST /urls
   # POST /urls.json
   def create
-    @token = Url.generate_token
     @url = Url.new(url_params)
-
     if @url.save
       render json: @url, status: :created, location: @url
     else
