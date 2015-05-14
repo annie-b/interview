@@ -18,6 +18,7 @@ class UrlsController < ApplicationController
   # POST /urls
   # POST /urls.json
   def create
+    @token = Url.generate_token
     @url = Url.new(url_params)
 
     if @url.save
